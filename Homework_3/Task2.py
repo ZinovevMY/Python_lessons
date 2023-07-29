@@ -10,10 +10,12 @@ def wordscount_in_string(string: str) -> dict:
     string = string.lower()
     string = re.sub(r'[^\w\s]', '', string)
     string_list = string.split()
-    for w in range(len(string_list)):
-        string_dict[w] = string_list.count(string_list(w))
+    for word in string_list:
+        if word in string_dict:
+            string_dict[word] += 1
+        else:
+            string_dict[word] = 1
     return string_dict
-
 
 my_str = "Сейчас я не могу сказать, что именно, но в его облике меня что-то привлекло. " \
          "Старотипный плащ, фасона 1965 года, на нём не было места, которое было бы не зашито. " \
@@ -29,4 +31,6 @@ my_str = "Сейчас я не могу сказать, что именно, н�
          "Какой-то нехороший комок подкатил к моему горлу. Я начал замерзать, а продавщицы всё не было."
 
 string_dict = wordscount_in_string(my_str)
-print(string_dict)
+max_words = max(string_dict.values())
+key = list(filter(lambda key: string_dict[key] == max_words, string_dict))
+print(f"В введенной строке чаще всего ({max_words} раз) встречается слово {key}.")
