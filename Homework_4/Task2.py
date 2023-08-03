@@ -5,3 +5,13 @@
 
 
 def kwargs_2_dict(**kwargs) -> dict:
+    result = {}
+    for k, v in kwargs.items():
+        if v.__hash__ is None:
+            result[str(v)] = k
+        else:
+            result[v] = k
+    return result
+
+
+print(kwargs_2_dict(res=1, reverse=[1, 2, 3]))
