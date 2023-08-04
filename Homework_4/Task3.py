@@ -73,6 +73,8 @@ def show_balance(balance: int):
 balance = 0
 op_counter = 0
 enrollment_log = []
+inc_bal = 0
+dec_bal = 0
 
 while True:
     operation = start_menu()
@@ -85,8 +87,9 @@ while True:
                 balance -= tax
                 enrollment_log.append(-tax)
                 show_balance(balance)
-            balance += increase_balance(balance, op_counter)
-            enrollment_log.append(increase_balance(balance, op_counter))
+            inc_bal = increase_balance(balance, op_counter)
+            balance += inc_bal
+            enrollment_log.append(inc_bal)
             op_counter += 1
             show_balance(balance)
         case 3:
@@ -95,8 +98,9 @@ while True:
                 balance -= tax
                 enrollment_log.append(-tax)
                 show_balance(balance)
-            balance -= decrease_balance(balance, op_counter)
-            enrollment_log.append(-decrease_balance(balance, op_counter))
+            dec_bal = decrease_balance(balance, op_counter)
+            balance -= dec_bal
+            enrollment_log.append(-dec_bal)
             op_counter += 1
             show_balance(balance)
         case 4:
