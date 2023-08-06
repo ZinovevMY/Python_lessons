@@ -20,5 +20,9 @@ for i in range(1, 101):
         print(i)
 
 
-nums = range(1, 101)
-
+nums = ("FizzBuzz\n" if i % 3 == 0 and i % 5 == 0
+        else "Fizz\n" if i % 3 == 0
+        else "Buzz\n" if i % 5 == 0
+        else str(i) + "\n" for i in range(1, 101))
+print("Выводим генератором:")
+print(*nums)
