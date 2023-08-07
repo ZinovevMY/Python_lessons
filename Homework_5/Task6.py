@@ -20,8 +20,9 @@ for i in range(divider):
         print(mult[last_elem], end='\t')
     print()
 print("--------------------------------------")
-# for i in range(divider):
-#     for j in range(len(factor_1)//2):
-#         print(mult[i+j*step], end='\t')
-#     print()
-# print("--------------------------------------")
+
+for i in range(last_elem + 1, last_elem + divider + 1):
+    for j in range(len(factor_1)//2):
+        print(mult[i+j*step], end='\t')
+    print()
+print("--------------------------------------")
