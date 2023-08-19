@@ -26,7 +26,6 @@ def guess_number(bottom: int, top: int, attempts: int):
             print("Введенное число больше загаданного!")
             counter += 1
         else:
-            print(f"Вы угадали число {guess_num} за {counter} попыток!")
-            break
+            return True
     else:
-        print(f"Вы не угадали число {guess_num}!")
+        return False
