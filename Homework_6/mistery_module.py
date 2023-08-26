@@ -7,6 +7,7 @@
 
 MISTERY_DICT = {"Висит груша, нельзя скушать.": ['мяч', 'лампочка', 'арбуз', 'паровоз'],
                 "Зимой и летом одним цветом.": ['песок', 'небо', 'паровоз', 'елка', 'мяч', 'молоток']}
+_results_dict = {}
 
 
 def get_clue():
@@ -27,8 +28,18 @@ def mistery(mistery_text: str, clue_list: list[str], attempts: int) -> int:
 
 def puzzle_game():
     for k, v in MISTERY_DICT.items():
-        print(mistery(k, v, 3))
+        _results_dict[k] = mistery(k, v, 3)
+
+
+def print_scores():
+
+    for k, v in _results_dict.items():
+        if v != 0:
+            print(f"{k} отгадали с {v} попытки.")
+        else:
+            print(f"{k} не отгадали.")
 
 
 if __name__ == "__main__":
     puzzle_game()
+    print_scores()
