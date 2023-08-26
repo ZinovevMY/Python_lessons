@@ -1,15 +1,34 @@
 # Создайте модуль с функцией внутри.
 # Функция получает на вход загадку, список с возможными вариантами отгадок и количество попыток на угадывание.
 # Программа возвращает номер попытки, с которой была отгадана загадка или ноль, если попытки исчерпаны.
+# Добавьте в модуль с загадками функцию, которая хранит словарь списков.
+# Ключ словаря - загадка, значение - список с отгадками.
+# Функция в цикле вызывает загадывающую функцию, чтобы передать ей все свои загадки.
 
-def mistery(mistery_text: str, clue: str, clues_list: list[str], attempts_num: int) -> int:
+MISTERY_DICT = {"Висит груша, нельзя скушать.": ['мяч', 'лампочка', 'арбуз', 'паровоз'],
+                "Зимой и летом одним цветом.": ['песок', 'небо', 'паровоз', 'елка', 'мяч', 'молоток']}
+
+
+def get_clue():
+    return input("Введите отгадку: ")
+
+
+def mistery(mistery_text: str, clue_list: list[str], attempts: int) -> int:
     counter = 0
-    print(f'Отгадайте загадку "{mistery_text}" с {attempts_num} попыток!')
-    while counter < attempts_num:
-        for i in range(0, attempts_num):
-            if clues_list[i].lower() == clue.lower():
-                return counter + 1
-            else:
-                counter += 1
-    else:
-        return 0
+    print(f"Отгадайте загадку '{mistery_text}' за {attempts} попыток!")
+    while counter < attempts:
+        clue = get_clue()
+        if clue.lower() in clue_list:
+            return counter + 1
+        else:
+            counter += 1
+    return 0
+
+
+def puzzle_game():
+    for k, v in MISTERY_DICT.items():
+        print(mistery(k, v, 3))
+
+
+if __name__ == "__main__":
+    puzzle_game()
