@@ -9,6 +9,8 @@ MISTERY_DICT = {"Висит груша, нельзя скушать.": ['мяч'
                 "Зимой и летом одним цветом.": ['песок', 'небо', 'паровоз', 'елка', 'мяч', 'молоток']}
 _results_dict = {}
 
+__all__ = ['get_clue', 'mistery', 'puzzle_game', 'print_scores']
+
 
 def get_clue():
     return input("Введите отгадку: ")

@@ -6,6 +6,7 @@
 
 from random import randint
 
+__all__ = ['input_number', 'guess_number']
 
 def input_number(num1: int, num2: int) -> int:
     return int(input(f"Введите число от {num1} до {num2}: "))
