@@ -1,1 +1,1 @@
-__all__ = ['somemodule', 'mistery_module', 'check_date']
+__all__ = ['somemodule', 'mistery_module', 'check_date', 'portfolio']

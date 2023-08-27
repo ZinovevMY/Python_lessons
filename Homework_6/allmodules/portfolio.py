@@ -34,6 +34,7 @@
 # Вышло:
 # MSFT
 
+__all__ = ['calculate_portfolio_value', 'calculate_portfolio_return', 'get_most_profitable_stock']
 def calculate_portfolio_value(stocks: dict, prices: dict) -> float:
     summary = 0
     for k, v in stocks.items():
