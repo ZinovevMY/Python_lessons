@@ -4,7 +4,7 @@
 # Для преобразования строковых аргументов командной строки в числовые параметры используйте генераторное выражение.
 
 import argparse
-import somemodule as sm
+from Homework_6.allmodules import somemodule as sm
 
 parser = argparse.ArgumentParser(description="Получаем параметры функции")
 parser.add_argument('bottom', type=int, help="Нижний диапазон генератора")

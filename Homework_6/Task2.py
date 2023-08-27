@@ -1,4 +1,4 @@
-import somemodule as sm
+from Homework_6.allmodules import somemodule as sm
 
 bottom_num = int(input("Введите нижнее число диапазона: "))
 top_num = int(input("Введите верхнее число диапазона: "))
