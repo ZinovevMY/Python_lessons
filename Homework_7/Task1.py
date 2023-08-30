@@ -12,7 +12,7 @@ def fill_file(str_count: int, filename: str):
         for _ in range(1, str_count + 1):
             first_num = randint(-1000, 1000)
             second_num = uniform(-1000.0, 1000.0)
-            file.write(f'{first_num} | {second_num: .2f}\n')
+            file.write(f'{first_num}|{second_num: .2f}\n')
 
 
-fill_file(15, "task1_text.txt")
+fill_file(10, "task1_text.txt")
