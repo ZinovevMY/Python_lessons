@@ -24,4 +24,5 @@ def pseudonyms(filename: str):
         file.write(pseudonym + "\n")
 
 
-pseudonyms('task2_text.txt')
+if __name__ == "__main__":
+    pseudonyms('task2_text.txt')
