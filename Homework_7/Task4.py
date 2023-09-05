@@ -11,6 +11,7 @@
 from os import urandom
 import random
 
+__all__ = ['file_generator']
 def file_generator(file_description, min_name_len=6, max_name_len=30, min_bytes_count=256,
                     max_bytes_count=4096, files_count=42):
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
