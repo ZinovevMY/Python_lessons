@@ -5,9 +5,7 @@
 # ✔ Существующие файлы не должны удаляться/изменяться в случае совпадения имён.
 import random
 from pathlib import Path
-import Task1 as t1
-import Task2 as t2
-import Task3 as t3
+from Homework_7.My_Package import Task1 as t1, Task2 as t2, Task3 as t3
 
 
 def generate_file_name(length: int)-> str:

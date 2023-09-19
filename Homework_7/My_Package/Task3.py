@@ -37,4 +37,4 @@ def file_comparator(filename1: str, filename2: str, output_file: str):
 
 
 if __name__ == "__main__":
-    file_comparator("task1_text.txt", "task2_text.txt", "task3_text.txt")
+    file_comparator("task1_text.txt", "task2_text.txt", "../task3_text.txt")

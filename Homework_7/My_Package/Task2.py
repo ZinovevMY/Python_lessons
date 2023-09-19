@@ -25,4 +25,4 @@ def pseudonyms(filename: str):
 
 
 if __name__ == "__main__":
-    pseudonyms('task2_text.txt')
+    pseudonyms('../task2_text.txt')

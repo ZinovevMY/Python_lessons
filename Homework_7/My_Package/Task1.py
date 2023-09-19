@@ -15,4 +15,4 @@ def fill_file(str_count: int, filename: str):
             file.write(f'{first_num}|{second_num: .2f}\n')
 
 
-fill_file(10, "task1_text.txt")
+fill_file(10, "../task1_text.txt")

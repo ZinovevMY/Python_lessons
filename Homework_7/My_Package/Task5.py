@@ -5,7 +5,8 @@
 # ✔ Количество файлов для каждого расширения различно.
 # ✔ Внутри используйте вызов функции из прошлой задачи
 
-import Task4 as t
+from Homework_7.My_Package import Task4 as t
+
 
 def generate_many_files(files_dict: dict):
     """
