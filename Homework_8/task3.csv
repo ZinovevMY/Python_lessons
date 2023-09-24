@@ -1,2 +1,4 @@
-1,2,3,4,5,6,7
-{'2': 'Kolya'},{'1': 'Misha'},{},{'3': 'Roma'},{},{},{}
+level,id,name
+1,2,Kolya
+2,1,Misha
+4,3,Roma
