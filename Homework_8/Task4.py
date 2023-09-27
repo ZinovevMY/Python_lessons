@@ -22,13 +22,15 @@ def read_csv(src_path: str, dst_path: str):
                 data[i].append(hash_obj.hexdigest())
         with open(dst_path, "a") as json_file:
             json_dict: dict = {}
+            json_data: list = []
             for i in range(len(data)):
                 key = data[i][0]
                 if key not in json_dict:
                     json_dict[key] = {}
                 json_dict[key] = (data[i][1:])
-                json.dump(json_dict, json_file, indent=2)
+                json_data.append({k: v for k, v in json_dict.items()})
                 json_dict.clear()
+            json.dump(json_data, json_file, indent=2)
     except FileNotFoundError:
         print("File not found!")
         exit(0)
