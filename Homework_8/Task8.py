@@ -4,32 +4,45 @@
 # ○ Для каждого объекта укажите файл это или директория.
 # ○ Для файлов сохраните его размер в байтах, а для директорий размер файлов в ней
 # с учётом всех вложенных файлов и директорий.
+import csv
+import json
 import os
+import pickle
 
 
-def folder_traversal(path: str, depth=0):
-    content_dict: dict = {}
-    dict_data = []
+def folder_traversal(path: str, content_dict: dict):
     for file in os.scandir(path):
         if file.is_file():
-            dict_data.append(os.path.dirname(file.path))
-            dict_data.append("File")
-            dict_data.append(os.path.getsize(file.path))
-            content_dict[file.name] = dict_data
-            dict_data = []
+            content_dict[file.name] = {
+                "path": os.path.dirname(file.path),
+                "type": "File",
+                "size": os.path.getsize(file.path)
+            }
         elif file.is_dir():
             total_size = 0
             for f in os.listdir(file.path):
-                if os.path.isfile(f):
-                    total_size += os.path.getsize(f)
-            dict_data.append(os.path.dirname(file))
-            dict_data.append("Folder")
-            dict_data.append(total_size)
-            content_dict[file.name] = dict_data
-            dict_data = []
-            folder_traversal(file.path, depth + 1)
-    print(content_dict)
+                if os.path.isfile(os.path.join(file.path, f)):
+                    total_size += os.path.getsize(os.path.join(file.path, f))
+            content_dict[file.name] = {
+                "path": os.path.dirname(file.path),
+                "type": "Folder",
+                "size": total_size
+            }
+            folder_traversal(file.path, content_dict[file.name])
+    return content_dict
 
 
-
-folder_traversal("C:\\Разное\\Python_lessons\\Homework_8")
+if __name__ == "__main__":
+    my_dict: dict = {}
+    path = "C:\\Разное\\Python_lessons\\Homework_8"
+    folder_traversal(path, my_dict)
+    with (
+        open(path + "\\task8.json", "w", encoding="utf-8") as json_file,
+        open(path + "\\task8.csv", "w", encoding="utf-8", newline='') as csv_file,
+        open(path + "\\task8.pickle", "wb") as pickle_file
+    ):
+        json.dump(my_dict, json_file, ensure_ascii=False)
+        writer = csv.DictWriter(csv_file, fieldnames=[name for name in my_dict.keys()])
+        writer.writeheader()
+        writer.writerow(my_dict)
+        pickle.dump(my_dict, pickle_file)
