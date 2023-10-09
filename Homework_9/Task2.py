@@ -25,4 +25,4 @@ def game(number: int, attempts: int):
 
 
 if __name__ == "__main__":
-    print(game(25, 3))
+    print(game(140, 35))
