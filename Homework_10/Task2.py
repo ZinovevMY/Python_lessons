@@ -4,9 +4,12 @@
 # Если при создании экземпляра передаётся только одна сторона, считаем что у нас квадрат.
 
 class Rectangle:
-    def __init__(self, length, width):
+    def __init__(self, length, width=None):
         self.length = length
-        self.width = width
+        if width is None:
+            self.width = self.length
+        else:
+            self.width = width
 
     def perimeter(self):
         return (self.length + self.width) * 2
