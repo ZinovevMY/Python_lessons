@@ -21,7 +21,8 @@ class Human:
         return self.__age
 
 
-Misha = Human('Михаил', 'Юрьевич', 'Зиновьев', 41, 'мужской')
-print(Misha.full_name())
-Misha.birthday()
-print(Misha.full_name())
+if __name__ == "__main__":
+    Misha = Human('Михаил', 'Юрьевич', 'Зиновьев', 41, 'мужской')
+    print(Misha.full_name())
+    Misha.birthday()
+    print(Misha.full_name())
