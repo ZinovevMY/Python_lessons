@@ -25,12 +25,18 @@ class Archive:
         self.number = number
         self.string = string
 
+    def __str__(self):
+        return (f'Число в архиве = {self.number}, строка = {self.string}, значения ранее созданных экземпляров: '
+                f'{self.nums} и {self.strings}.')
+
+    def __repr__(self):
+        return f'Archive({self.number}, {self.string})'
+
 
 if __name__ == "__main__":
     arc1 = Archive(2, "23")
     arc2 = Archive(5, "15")
-    print(arc1.nums)
-    print(arc1.strings)
-    print(arc2.nums)
-    print(arc2.strings)
+    arc3 = Archive(1, "11")
     print(help(Archive))
+    print(arc1)
+    print(repr(arc2))
