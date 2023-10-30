@@ -4,6 +4,9 @@
 # list-архивы также являются свойствами экземпляра
 
 class Archive:
+    """Archive class contains integer or float number and some string.
+       The class also stores number and string values from previously created instances.
+    """
     _instance = None
     nums = []
     strings = []
@@ -30,3 +33,4 @@ if __name__ == "__main__":
     print(arc1.strings)
     print(arc2.nums)
     print(arc2.strings)
+    print(help(Archive))
