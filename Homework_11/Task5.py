@@ -24,6 +24,24 @@ class Rectangle:
     def __sub__(self, other):
         return Rectangle(self.length, abs(self.width - other.width))
 
+    def __eq__(self, other):
+        return self.square() == other.square()
+
+    def __ne__(self, other):
+        return self.square() != other.square()
+
+    def __gt__(self, other):
+        return self.square() > other.square()
+
+    def __ge__(self, other):
+        return self.square() <= other.square()
+
+    def __lt__(self, other):
+        return self.square() < other.square()
+
+    def __le__(self, other):
+        return self.square() >= other.square()
+
 
 if __name__ == '__main__':
     rect1 = Rectangle(5, 10)
@@ -32,3 +50,5 @@ if __name__ == '__main__':
     rect4 = rect1 - rect2
     print(rect3.length, rect3.width)
     print(rect4.length, rect4.width)
+    print(rect1.__eq__(rect2))
+    print(rect3.__gt__(rect4))
