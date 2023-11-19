@@ -1,8 +1,11 @@
 # Доработайте класс прямоугольник из прошлых семинаров.
 # Добавьте возможность изменять длину и ширину прямоугольника и встройте контроль недопустимых значений (отрицательных).
 # Используйте декораторы свойств.
+# Доработаем прямоугольник и добавим экономию памяти для хранения свойств экземпляра без словаря __dict__.
 
 class Rectangle:
+    __slots__ = ('_length', '_width')
+
     def __init__(self, length, width=None):
         self._length = length
         if width is None:
@@ -71,3 +74,5 @@ if __name__ == '__main__':
     rect1.length = 8
     print(rect1.square())
     # rect1.width = -3
+    print(rect1.__slots__)
+    print(Rectangle.__dict__)
